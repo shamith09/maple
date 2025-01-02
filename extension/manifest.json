@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Maple",
+  "version": "1.0",
+  "description": "Automatically finds and applies the best coupon codes while you shop.",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/maple.png",
+      "32": "images/maple.png",
+      "48": "images/maple.png",
+      "128": "images/maple.png"
+    }
+  },
+  "icons": {
+    "16": "images/maple.png",
+    "32": "images/maple.png",
+    "48": "images/maple.png",
+    "128": "images/maple.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "type": "module"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+} 

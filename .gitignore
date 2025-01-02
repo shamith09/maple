@@ -1,0 +1,5 @@
+backend/__pycache__/
+backend/env/
+backend/.env.local
+backend/.pytest_cache/
+backend/scraper.py
