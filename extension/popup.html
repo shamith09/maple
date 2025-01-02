@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Bagel+Fat+One&family=Cookie&display=swap');
+        
+        body {
+            width: 350px;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            color: #8c3502;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        h3 {
+            margin: 0;
+            color: #b24303;
+            font-size: 16px;
+            font-weight: normal;
+            font-family: 'Bagel Fat One', cursive;
+        }
+
+        .donation-section {
+            background: #fdf1e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            border: 1px solid #e8c4b0;
+        }
+
+        .donation-text {
+            color: #8c3502;
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .code-section {
+            margin-top: 20px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #e8c4b0;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            color: #8c3502;
+        }
+
+        input::placeholder {
+            color: #d4a088;
+        }
+
+        .discount-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .discount-wrapper input {
+            flex: 2;
+            margin: 0;
+        }
+
+        .discount-wrapper select {
+            flex: 1;
+            margin: 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 4px;
+            background: #b24303;
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background: #8c3502;
+        }
+
+        button:disabled {
+            background: #d4a088;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+            font-size: 14px;
+        }
+
+        .status.success {
+            display: block;
+            background: #fdf1e8;
+            color: #b24303;
+            border: 1px solid #e8c4b0;
+        }
+
+        .status.error {
+            display: block;
+            background: #fdf1e8;
+            color: #b24303;
+            border: 1px solid #e8c4b0;
+        }
+
+        .codes-list {
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .code-item {
+            padding: 10px;
+            border: 1px solid #e8c4b0;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s;
+        }
+
+        .code-item:hover {
+            border-color: #b24303;
+        }
+
+        .code-item .code {
+            font-weight: 600;
+            color: #8c3502;
+        }
+
+        .code-item .discount {
+            color: #b24303;
+            font-weight: 500;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e8c4b0;
+        }
+
+        .tab {
+            padding: 8px 15px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: #8c3502;
+            margin: 0;
+            font-weight: 500;
+            width: auto;
+        }
+
+        .tab.active {
+            color: #b24303;
+            border-bottom: 2px solid #b24303;
+        }
+
+        .tab:hover {
+            background: none;
+            color: #b24303;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #b24303;
+            box-shadow: 0 0 0 2px rgba(178, 67, 3, 0.1);
+        }
+
+        .search-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .search-wrapper input {
+            flex: 1;
+            margin: 0;
+        }
+
+        .search-wrapper button {
+            white-space: nowrap;
+            width: auto;
+            padding: 8px 12px;
+        }
+
+        .bmc-button-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .bmc-button {
+            background: #b24303;
+            font-family: 'Cookie', cursive !important;
+            font-size: 28px !important;
+            line-height: 35px !important;
+            padding: 5px 20px !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: auto !important;
+            min-width: 200px;
+            height: 42px;
+            border-radius: 21px;
+        }
+
+        .bmc-button:hover {
+            background: #8c3502;
+        }
+
+        .bmc-button img {
+            height: 28px;
+            width: auto;
+        }
+
+        .denylist-info {
+            color: #8c3502;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .denylist-sites {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .denylist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin: 5px 0;
+            background: #fdf1e8;
+            border: 1px solid #e8c4b0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #8c3502;
+        }
+
+        .denylist-item button {
+            background: #d4a088;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin: 0;
+            width: 70px;
+            flex-shrink: 0;
+        }
+
+        .denylist-item span {
+            margin-right: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .denylist-item button:hover {
+            background: #b24303;
+        }
+
+        .empty-denylist {
+            text-align: center;
+            color: #8c3502;
+            font-style: italic;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/maple.png" alt="Maple" class="logo">
+        <h3>Maple</h3>
+    </div>
+
+    <div class="donation-section">
+        <p class="donation-text">
+            Maple is powered by community support. Your donations help us maintain and improve the service for everyone.
+            Consider buying us a coffee to keep Maple running!
+        </p>
+        <div class="bmc-button-wrapper">
+            <a href="https://www.buymeacoffee.com/shamith" target="_blank">
+                <button class="bmc-button">
+                    <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Coffee cup">
+                    Buy me a coffee
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" data-tab="add">Add Code</button>
+        <button class="tab" data-tab="search">Search Codes</button>
+        <button class="tab" data-tab="denylist">Denylist</button>
+    </div>
+
+    <div class="tab-content active" id="add-tab">
+        <input type="text" id="domain-input" placeholder="Website domain (e.g., amazon.com)">
+        <input type="text" id="code-input" placeholder="Enter coupon code">
+        <div class="discount-wrapper">
+            <input type="number" id="discount-input" placeholder="Discount amount">
+            <select id="discount-type">
+                <option value="dollar">$</option>
+                <option value="percent">%</option>
+            </select>
+        </div>
+        <button id="add-code">Add Code</button>
+        <div class="status"></div>
+    </div>
+
+    <div class="tab-content" id="search-tab">
+        <div class="search-wrapper">
+            <input type="text" id="search-domain" placeholder="Search website (e.g., amazon.com)">
+            <button id="current-site">Current Site</button>
+        </div>
+        <button id="search-codes">Search</button>
+        <div class="codes-list"></div>
+    </div>
+
+    <div class="tab-content" id="denylist-tab">
+        <p class="denylist-info">Sites where notifications are disabled:</p>
+        <div class="denylist-sites"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html> 
