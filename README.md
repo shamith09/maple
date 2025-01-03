@@ -48,7 +48,7 @@ While this extension is completely free and ad-free, you can support its develop
 - ⭐ Starring this repository
 - 🐛 Reporting bugs and suggesting features
 - 💻 Contributing code improvements
-- ☕ [Buying us a coffee](https://www.buymeacoffee.com/maple)
+- ☕ [Buying us a coffee](https://www.buymeacoffee.com/shamith)
 
 ## Contributing
 
