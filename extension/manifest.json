@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Maple",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Automatically finds and applies the best coupon codes while you shop.",
   "permissions": ["activeTab", "storage", "scripting"],
   "action": {
