@@ -7,17 +7,17 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "images/maple.png",
-      "32": "images/maple.png",
-      "48": "images/maple.png",
-      "128": "images/maple.png"
+      "16": "images/maple16.png",
+      "32": "images/maple32.png",
+      "48": "images/maple48.png",
+      "128": "images/maple128.png"
     }
   },
   "icons": {
-    "16": "images/maple.png",
-    "32": "images/maple.png",
-    "48": "images/maple.png",
-    "128": "images/maple.png"
+    "16": "images/maple16.png",
+    "32": "images/maple32.png",
+    "48": "images/maple48.png",
+    "128": "images/maple128.png"
   },
   "background": {
     "service_worker": "background.js",
